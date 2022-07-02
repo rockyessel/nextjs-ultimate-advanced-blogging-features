@@ -1,4 +1,5 @@
 # Nextjs Ultimate Advanced Blogging Features
+
 This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder Structure, Dynamic Routes, Advanced Comments features, Popular Post, and more, using Sanity as Backend or Database.
 
 ## Some of the things that will be cover in this course are:
@@ -9,41 +10,41 @@ This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder
 4. Sanity.io - 1min
 5. Design - 3min
 6. Features - 2min
-   -Advanced Comment
-   -Popular Post
-   -featured Post
-   -Recommended Post
-   -Blog SEO
-   -Login
-   -User create their post
-   ###### advanced search filtering
-   -Dates
-   -Title
-   -Short description search
-   -Most Viewed
-   -Days
-   -Minutes Read
-   -ags
-   -categories
-   -Topics
-   -Authors
+   - Advanced Comment
+   - Popular Post
+   - featured Post
+   - Recommended Post
+   - Blog SEO
+   - Login
+   - User create their post
+   - #### advanced search filtering
+     - Dates
+     - Title
+     - Short description search
+     - Most Viewed
+     - Days
+     - Minutes Read
+     - ags
+     - categories
+     - Topics
+     - Authors
 7. We set-up sanity as backend - 2min
-8. Then, create posts, and get data - 
-7. Call data to our frontend (checking if we can get the data)
-9. Prepare the Frontend
-10. Folder Structure - 1min
-11. Post Design - 
-12. Author  - 
-13. Category - 
-14. Topic - 
-14. Pages - 
-    -authors.js - 
-    -categories.js - 
-    - topics.js - 
-    - index/Home.js - 
-    - contact.js - 
-    - search.js - 
-    - posts.js - 
-    - .env - 
-    - .gitignore - 
-15. Library/client.js - 
+8. Then, create posts, and get data -
+9. Call data to our frontend (checking if we can get the data)
+10. Prepare the Frontend
+11. Folder Structure - 1min
+12. Post Design -
+13. Author -
+14. Category -
+15. Topic -
+16. Pages -
+    - authors.js -
+    - categories.js -
+    - topics.js -
+    - index/Home.js -
+    - contact.js -
+    - search.js -
+    - posts.js -
+    - .env -
+    - .gitignore -
+17. Library/client.js -

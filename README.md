@@ -17,7 +17,7 @@ This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder
    - Blog SEO
    - Login
    - User create their post
-   - #### advanced search filtering
+   - Advanced search filtering
      - Dates
      - Title
      - Short description search

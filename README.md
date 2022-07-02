@@ -17,16 +17,16 @@ This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder
    -Login
    -User create thier post
    -advanced search filtering
-        -Dates
-        -Title
-        -Short description search
-        -Most Viewed
-        -Days
-        -Minutes Read
-        -Tags
-        -Categories
-        -Topics
-        -Authors
+        +Dates
+        +Title
+        +Short description search
+        +Most Viewed
+        +Days
+        +Minutes Read
+        +ags
+        +ategories
+        +Topics
+        +Authors
 7. We set-up sanity as backend - 2min
 8. Then, create posts, and get data - 
 7. Call data to our frontend (checking if we can get the data)

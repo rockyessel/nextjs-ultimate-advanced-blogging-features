@@ -8,29 +8,29 @@ This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder
 3. NextJS - 2min
 4. Sanity.io - 1min
 5. Design - 3min
-6. Feautures - 2min
+6. Features - 2min
    -Advanced Comment
    -Popular Post
-   -feautered Post
+   -featured Post
    -Recommended Post
    -Blog SEO
    -Login
-   -User create thier post
-   -advanced search filtering
-        +Dates
-        +Title
-        +Short description search
-        +Most Viewed
-        +Days
-        +Minutes Read
-        +ags
-        +ategories
-        +Topics
-        +Authors
+   -User create their post
+   ###### advanced search filtering
+   -Dates
+   -Title
+   -Short description search
+   -Most Viewed
+   -Days
+   -Minutes Read
+   -ags
+   -categories
+   -Topics
+   -Authors
 7. We set-up sanity as backend - 2min
 8. Then, create posts, and get data - 
 7. Call data to our frontend (checking if we can get the data)
-9. Papare the Frontend
+9. Prepare the Frontend
 10. Folder Structure - 1min
 11. Post Design - 
 12. Author  - 
@@ -45,5 +45,5 @@ This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder
     - search.js - 
     - posts.js - 
     - .env - 
-    - .gitigonre - 
+    - .gitignore - 
 15. Library/client.js - 

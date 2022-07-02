@@ -48,3 +48,6 @@ This is a course tutorial on advance NextJS blogging tutorials, with SEO, Folder
     - .env -
     - .gitignore -
 17. Library/client.js -
+
+
+#### Still Going Project

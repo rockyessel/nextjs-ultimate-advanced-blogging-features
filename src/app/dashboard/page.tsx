@@ -1,9 +1,14 @@
-import React from 'react'
+import Sidebar from '@/components/sidebar';
+import React from 'react';
 
 interface Props {}
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
-}
+  return (
+    <div>
+      <Sidebar />
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

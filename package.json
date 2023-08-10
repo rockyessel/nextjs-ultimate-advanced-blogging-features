@@ -9,18 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.0",
+    "@grafbase/apollo-link": "^1.1.0",
     "@types/node": "20.4.8",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "bcrypt": "^5.1.0",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
+    "jsonwebtoken": "^9.0.1",
     "next": "13.4.12",
+    "next-auth": "^4.22.5",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
+    "graphql": "^16.7.1"
   }
 }

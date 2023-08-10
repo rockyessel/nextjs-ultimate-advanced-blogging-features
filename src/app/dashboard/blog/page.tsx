@@ -2,8 +2,8 @@ import React from 'react'
 
 interface Props {}
 
-const layout = () => {
+const page = () => {
   return <div></div>
 }
 
-export default layout
+export default page

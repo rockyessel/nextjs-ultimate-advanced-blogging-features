@@ -22,11 +22,11 @@ type Comment @model @search {
   author: User
 }
 
-type User @model {
+type User @model @search {
+  email: Email! @unique
+  password: String
   name: String
   username: String
-  password: String
-  email: Email!
   posts: [Post]
   comments: [Comment]
 }

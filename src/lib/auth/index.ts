@@ -2,12 +2,16 @@
 import { NextAuthOptions, Session } from 'next-auth';
 import GitHubProvider from 'next-auth/providers/github';
 import TwitterProvider from 'next-auth/providers/twitter';
+import LinkedInProvider from 'next-auth/providers/linkedin';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import jsonwebtoken from 'jsonwebtoken';
 import { JWT } from 'next-auth/jwt';
 import { gql } from '@apollo/client';
-('');
+import bcrypt from 'bcrypt';
+import { request, GraphQLClient } from 'graphql-request';
+import { userAuth } from '../api';
+
 // Define the authentication options object
 export const authOptions: NextAuthOptions = {
   // Configure the authentication providers
@@ -17,9 +21,13 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET!,
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
+    LinkedInProvider({
+    clientId: process.env.LINKEDIN_CLIENT_ID!,
+    clientSecret: process.env.LINKEDIN_CLIENT_SECRET!
+  }),
     CredentialsProvider({
       name: 'credentials',
       credentials: {
@@ -27,32 +35,44 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'password', type: 'password' },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error('Invalid credentials');
-        }
+        try {
+          console.log('credentials', credentials);
 
-        const query = gql`
-          mutation UserCreate($email: String!, $password: String!) {
-            userCreate(input: { email: $email, password: $password }) {
-              user {
+          if (!credentials?.email || !credentials?.password) {
+            throw new Error('Invalid credentials');
+          }
+
+          const query = gql`
+            query User($email: Email!) {
+              user(by: { email: $email }) {
                 id
                 email
+                name
+                username
                 password
               }
             }
+          `;
+
+          const { user } = await userAuth({ email: credentials.email }, query) as any
+          const isCorrectPassword = await bcrypt.compare(
+            credentials.password,
+            user.password
+          );
+          if (!isCorrectPassword) {
+            throw new Error('Invalid credentials');
           }
-        `;
 
-        const response = await fetch('http://localhost:4000/graphql', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application.json' },
-          body: JSON.stringify(query),
-        });
-
-        const data = await response.json()
-        console.log('Query Data: ', data)
-
-        return data
+          if (user && isCorrectPassword) {
+            return user;
+          } else {
+            throw new Error('User do not exist');
+            return;
+          }
+        } catch (error) {
+          console.error('Error making GraphQL request:', error);
+          throw error;
+        }
       },
     }),
   ],
@@ -102,22 +122,28 @@ export const authOptions: NextAuthOptions = {
       return token; // Return the modified token
     },
 
-    // Session callback: Executed whenever a new session is created or updated
-    session({ session, token }) {
-      // console.log('session outside', session); // Log the session outside the conditional block
-      // console.log('token in session outside', token); // Log the token inside the session callback
+    // // Session callback: Executed whenever a new session is created or updated
+    // session({ session, token }) {
+    //   // console.log('session outside', session); // Log the session outside the conditional block
+    //   // console.log('token in session outside', token); // Log the token inside the session callback
 
-      // Check if the token has a 'username' property and if the session object exists
-      if (token.username) {
-        // Set the 'username' property of the session to the 'username' value from the token
-        session.username = token?.username as string;
-        // console.log('session inside', session); // Log the session inside the conditional block
-      }
+    //   // Check if the token has a 'username' property and if the session object exists
+    //   if (token.username) {
+    //     // Set the 'username' property of the session to the 'username' value from the token
+    //     session.username = token?.username as string;
+    //     // console.log('session inside', session); // Log the session inside the conditional block
+    //   }
 
-      // console.log('token in session outside end', token); // Log the token outside the conditional block
-      // console.log('session outside end', session); // Log the session outside the conditional block
-      return session; // Return the modified session
-    },
+    //   // console.log('token in session outside end', token); // Log the token outside the conditional block
+    //   // console.log('session outside end', session); // Log the session outside the conditional block
+    //   return session; // Return the modified session
+    // },
   },
   debug: process.env.NODE_ENV === 'development',
 };
+
+/*
+
+      
+
+          */

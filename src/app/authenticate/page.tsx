@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { FaGithub, FaFacebook, FaTwitter, FaGoogle } from 'react-icons/fa';
 import { signIn, useSession } from 'next-auth/react';
+import axios from 'axios';
 
 interface Props {}
 
@@ -29,6 +30,7 @@ const Authenticate = () => {
 
     console.log('form: ', form);
     if (form) {
+      await axios.post('/api/register', { ...form });
       signIn('credentials', {
         ...form,
         redirect: false,

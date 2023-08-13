@@ -1,3 +1,11 @@
 {
-  "cSpell.words": ["bloggkie", "Grafbase", "Rathetta"]
+  "cSpell.words": [
+    "bloggkie",
+    "espeak",
+    "fastapi",
+    "Grafbase",
+    "gtts",
+    "Rathetta",
+    "uvicorn"
+  ]
 }

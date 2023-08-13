@@ -1,6 +1,5 @@
 'use client';
-
-import type { PropsWithChildren } from 'react';
+import React from 'react'
 import { useMemo } from 'react';
 import {
   ApolloClient,
@@ -22,7 +21,11 @@ const sseLink = new SSELink({
   uri: process.env.NEXT_PUBLIC_GRAFBASE_API_URL!,
 });
 
-export const ApolloProviderWrapper = ({ children }: PropsWithChildren) => {
+interface Props {
+  children: React.ReactNode
+}
+
+export const ApolloProviderWrapper = (props:Props) => {
   const client = useMemo(() => {
     const authMiddleware = setContext(async (_, { headers }) => {
       const { token } = await fetch('/api/auth/token').then((res) =>
@@ -54,5 +57,5 @@ export const ApolloProviderWrapper = ({ children }: PropsWithChildren) => {
     });
   }, []);
 
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+  return <ApolloProvider client={client}>{props.children}</ApolloProvider>;
 };

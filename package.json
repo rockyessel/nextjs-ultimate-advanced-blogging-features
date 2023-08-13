@@ -9,14 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.0",
+    "@apollo/client": "^3.8.1",
     "@grafbase/apollo-link": "^1.1.0",
     "@types/node": "20.4.8",
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "aws-sdk": "^2.1435.0",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
+    "cheerio": "^1.0.0-rc.12",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "graphql-request": "^6.1.0",

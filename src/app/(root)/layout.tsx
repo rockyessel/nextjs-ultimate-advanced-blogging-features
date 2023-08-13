@@ -1,5 +1,5 @@
 import Navbar from '@/components/navbar';
-import '../styles/global.css';
+import '@/styles/global.css';
 import { LayoutRootProps } from '@/interface';
 import type { Metadata } from 'next';
 

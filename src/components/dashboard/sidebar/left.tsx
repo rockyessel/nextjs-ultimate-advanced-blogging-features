@@ -10,9 +10,9 @@ import { SiPowerpages } from 'react-icons/si';
 
 interface Props {}
 
-const Sidebar = () => {
+const LeftSidebar = () => {
   return (
-    <aside className='flex-shrink-0 hidden w-64 border-r overflow-y-auto md:block h-[93vh] pb-5'>
+    <aside className='flex-shrink-0 hidden w-64 bg-white border-r overflow-y-auto md:block h-[93vh] pb-5'>
       <nav className='flex flex-col w-full h-full justify-between'>
         <ul className='flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto'>
           <li>
@@ -72,4 +72,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default LeftSidebar;

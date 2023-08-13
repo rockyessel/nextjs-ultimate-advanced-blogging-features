@@ -22,7 +22,7 @@ export const POST = async (request: Request) => {
       email,
       password: hashedPassword,
     };
-    const data = await userAuth(variables, query);
+    const data = await userAuth(query, variables);
     return NextResponse.json({ user: data });
   } catch (error) {
     return NextResponse.json({ error });

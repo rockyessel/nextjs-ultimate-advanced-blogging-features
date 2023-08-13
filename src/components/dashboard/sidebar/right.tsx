@@ -12,7 +12,7 @@ interface Props {}
 
 const RightSidebar = () => {
   return (
-    <aside className='flex-shrink-0 hidden w-64 bg-white border-r overflow-y-auto md:block pb-5'>
+    <aside className='flex-shrink-0 hidden w-64 bg-white border-r overflow-y-auto md:block pb-5 sticky top-10'>
       <nav className='flex flex-col w-full h-full justify-between'>
         <ul className='flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto'>
           <li>

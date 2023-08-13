@@ -1,14 +1,14 @@
-type Chat @model @auth(rules: [{ allow: owner, operations: [create, update, delete] }]) {
+type Chat @model {
   content: String!
-  author: User! # Relationship with the User who wrote the chat message
+  author: User!
 }
 
-type Post @model @search @auth(rules: [{ allow: public, operations: [read] } { allow: owner, operations: [create, update, delete] }])  {
+type Post @model @search {
   title: String!
-  caption:String
+  caption: String
   slug: String! @unique
   content: String!
-  publishedAt: DateTime!
+  publishedAt: String!
   comments: [Comment]
   likes: Int @default(value: 0)
   views: Int @default(value: 0)
@@ -16,7 +16,6 @@ type Post @model @search @auth(rules: [{ allow: public, operations: [read] } { a
   author: User! @relation(name: "UserPosts")
   audio: String
   chats: [Chat]
-  # Non-User('Public') - User('Private')
   status: String @default(value: "public")
   includedUsers: [User] @relation(name: "PostIncludedUsers")
 }
@@ -31,17 +30,20 @@ type Comment @model @search {
 type User @model @search {
   email: Email! @unique
   password: String
-  picture:String
+  picture: String
   name: String
   username: String
   posts: [Post]
   comments: [Comment]
 }
 
-
-schema @auth(
-    providers: [{ type: jwt, issuer: "nextauth", secret: "{{ env.NEXTAUTH_SECRET }}" }]
-    rules: [{ allow: private }])
-    {
+schema
+  @auth(
+    providers: [
+      { type: jwt, issuer: "nextauth", secret: "{{ env.NEXTAUTH_SECRET }}" }
+    ]
+    rules: [{ allow: private }]
+  ) {
   query: Query
+  mutation: Mutation
 }

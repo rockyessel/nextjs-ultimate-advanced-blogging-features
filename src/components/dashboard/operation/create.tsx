@@ -9,24 +9,37 @@ interface Props {}
 
 const PublishBlogPost = gql`
   mutation PostCreate(
-    $author: User
+    $author: ID!
     $title: String!
     $caption: String
     $slug: String!
-    $content: String
+    $content: String!
+    $publishedAt: String!
+    $audio: String
   ) {
     postCreate(
       input: {
-        author: $author
+        author: { link: $author }
         title: $title
         caption: $caption
         slug: $slug
         content: $content
+        publishedAt: $publishedAt
+        audio: $audio
       }
     ) {
       post {
+        id
+        status
+        author {
+          email
+          id
+        }
+        views
+        likes
         title
         slug
+        content
       }
     }
   }
@@ -48,49 +61,51 @@ const CreateBlogPost = () => {
   };
 
   const { data: session } = useSession();
+  const user = { ...session?.user } as any;
+  console.log('user', user);
 
-const handleFormSubmission = async (event: any) => {
-  event.preventDefault();
+  const handleFormSubmission = async (event: any) => {
+    event.preventDefault();
 
-  console.log('isObjectEmpty :', !isObjectEmpty(postForm));
-  console.log('postForm :', postForm);
+    console.log('isObjectEmpty :', !isObjectEmpty(postForm));
+    console.log('postForm :', postForm);
 
-  const ttsObj = { title: postForm.title, content: postForm.content };
-  const response = await fetch('/api/tts', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(ttsObj),
-  });
+    const ttsObj = { title: postForm.title, content: postForm.content };
+    const response = await fetch('/api/tts', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(ttsObj),
+    });
 
-  try {
-    const data = await response.json(); // Await the JSON data
+    try {
+      const data = await response.json(); // Await the JSON data
 
-    console.log('url', data.url);
+      console.log('url', data.url);
 
-    if (session && !isObjectEmpty(postForm)) {
-      if (response.ok) {
-        const publishResponse = await publishPost({
-          variables: {
-            ...postForm,
-            author: { email: session?.user?.email },
-            audio: data.url,
-            slug: stringToSlugValue(postForm.title),
-            publishedAt: new Date().toISOString(),
-          },
-        });
+      if (session && !isObjectEmpty(postForm)) {
+        if (response.ok) {
+          const publishResponse = await publishPost({
+            variables: {
+              ...postForm,
+              author: user?.id,
+              audio: data.url,
+              slug: stringToSlugValue(postForm.title.toLowerCase()),
+              publishedAt: new Date().toISOString(),
+            },
+          });
 
-        console.log('data :', publishResponse);
+          console.log('data :', publishResponse);
+        }
       }
+    } catch (error) {
+      console.error('Error:', error);
     }
-  } catch (error) {
-    console.error('Error:', error);
-  }
 
-  setPostFrom(initialPostForm);
-};
+    setPostFrom(initialPostForm);
+  };
 
   return (
     <form onSubmit={handleFormSubmission}>

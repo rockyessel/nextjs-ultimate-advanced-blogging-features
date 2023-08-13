@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { FaGithub, FaFacebook, FaTwitter, FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaGoogle } from 'react-icons/fa';
 import { signIn, useSession } from 'next-auth/react';
 import axios from 'axios';
 
@@ -87,10 +87,14 @@ const Authenticate = () => {
               </div>
             </div>
             <div className='mt-2.5 flex justify-center gap-3    '>
-              <FaGithub className='w-10 h-10 p-1 rounded-md bg-gray-500 text-white text-2xl' />
-              <FaGoogle className='w-10 h-10 p-1 rounded-md bg-gray-500 text-white text-2xl' />
-              <FaTwitter className='w-10 h-10 p-1 rounded-md bg-gray-500 text-white text-2xl' />
-              <FaFacebook className='w-10 h-10 p-1 rounded-md bg-gray-500 text-white text-2xl' />
+              <FaGithub
+                onClick={() => signIn('github')}
+                className='w-10 h-10 p-1 rounded-md bg-gray-500 text-white text-2xl'
+              />
+              <FaGoogle
+                onClick={() => signIn('google')}
+                className='w-10 h-10 p-1 rounded-md bg-gray-500 text-white text-2xl'
+              />
             </div>
             <div className='mt-5 flex text-center text-sm text-gray-400'>
               <p>

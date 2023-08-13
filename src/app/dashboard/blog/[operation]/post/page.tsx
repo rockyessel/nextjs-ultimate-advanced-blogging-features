@@ -1,10 +1,10 @@
 import RightSidebar from '@/components/dashboard/sidebar/right';
-import CreateBlogPost from '@/components/dashboard/operation/create'
+import CreateBlogPost from '@/components/dashboard/operation/create';
 import React from 'react';
 
 interface Props {}
 
-const PostDetailsOperation = () => {
+const PostOperation = () => {
   return (
     <section className='flex bg-white'>
       <div className='flex-1'>
@@ -49,4 +49,4 @@ const PostDetailsOperation = () => {
   );
 };
 
-export default PostDetailsOperation;
+export default PostOperation;

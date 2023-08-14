@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { useSession } from 'next-auth/react';
 import { isObjectEmpty, stringToSlugValue } from '@/lib/helpers';
+import RightSidebar from '../sidebar/right';
 
 interface Props {}
 
@@ -51,7 +52,9 @@ const CreateBlogPost = () => {
   const [publishPost] = useMutation(PublishBlogPost);
   const [postForm, setPostFrom] = React.useState(initialPostForm);
 
-  const handlePostFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePostFormChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const { target } = event;
 
     setPostFrom((initialForm) => ({
@@ -108,39 +111,31 @@ const CreateBlogPost = () => {
   };
 
   return (
-    <form onSubmit={handleFormSubmission}>
-      <fieldset>
-        <input
-          name='title'
-          type='text'
-          value={postForm.title}
-          className='outline-none border-none w-full h-20'
-          placeholder='Title eg. How to create a time machine'
-          onChange={handlePostFormChange}
-        />
-      </fieldset>
-      <fieldset>
-        <input
-          name='caption'
-          type='text'
-          value={postForm.caption}
-          className='outline-none border-none w-full h-20'
-          placeholder='Add article caption here'
-          onChange={handlePostFormChange}
-        />
-      </fieldset>
-      <fieldset>
-        <input
-          name='content'
-          type='text'
-          value={postForm.content}
-          className='outline-none border-none w-full h-20'
-          placeholder='Start writing some content'
-          onChange={handlePostFormChange}
-        />
-      </fieldset>
-      <button type='submit'>Publish</button>
-    </form>
+    <>
+      <form className='flex-1' onSubmit={handleFormSubmission}>
+        <fieldset>
+          <textarea
+            id='contextMenu'
+            name='title'
+            value={postForm.title}
+            className='outline-none border-none w-full text-[3rem] leading-none'
+            placeholder='Post Title'
+            onChange={handlePostFormChange}
+          ></textarea>
+        </fieldset>
+        <fieldset>
+          <textarea
+            name='content'
+            value={postForm.content}
+            className='outline-none border-none w-full text-[1.2rem] '
+            placeholder='Just your first words....'
+            onChange={handlePostFormChange}
+          ></textarea>
+        </fieldset>
+      </form>
+
+      <RightSidebar />
+    </>
   );
 };
 

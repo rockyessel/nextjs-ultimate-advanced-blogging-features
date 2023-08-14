@@ -102,11 +102,6 @@ export const authOptions: NextAuthOptions = {
           token.sub = userId;
         }
       }
-
-      console.log('jwt callback token before', token);
-      token.sub = userId;
-      console.log('jwt callback token after', token);
-
       return token;
     },
 

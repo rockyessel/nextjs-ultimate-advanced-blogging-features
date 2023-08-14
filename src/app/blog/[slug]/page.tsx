@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 
@@ -18,10 +18,10 @@ const BlogDetailedPage = () => {
     setFormattingToolsVisible(true);
 
     const formattingTools = document.getElementById('formattingTools');
-     if (formattingTools) {
-    formattingTools.style.left = `${x}px`;
-    formattingTools.style.top = `${y}px`;
-  }
+    if (formattingTools) {
+      formattingTools.style.left = `${x}px`;
+      formattingTools.style.top = `${y}px`;
+    }
   };
 
   const handleFormatting = (format: string) => {
@@ -37,8 +37,7 @@ const BlogDetailedPage = () => {
       textareaRef.current.value = newText;
       setFormattingToolsVisible(false);
     }
-
-  }
+  };
   return (
     <section>
       <main className='pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900'>
@@ -46,7 +45,7 @@ const BlogDetailedPage = () => {
           <article className='mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert'>
             <header className='mb-4 lg:mb-6 not-format'>
               <address className='flex items-center mb-6 not-italic'>
-                <div className='inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white'>
+                <div className='inline-flex items-center mr-3 text-sm dark:text-white'>
                   <img
                     className='mr-4 w-16 h-16 rounded-full'
                     src='https://flowbite.com/docs/images/people/profile-picture-2.jpg'
@@ -56,14 +55,14 @@ const BlogDetailedPage = () => {
                     <a
                       href='#'
                       rel='author'
-                      className='text-xl font-bold text-gray-900 dark:text-white'
+                      className='text-xl font-bold dark:text-white'
                     >
                       Jese Leos
                     </a>
-                    <p className='text-base font-light text-gray-500 dark:text-gray-400'>
+                    <p className='text-base font-light text-gray-500 '>
                       Graphic Designer, educator & CEO Flowbite
                     </p>
-                    <p className='text-base font-light text-gray-500 dark:text-gray-400'>
+                    <p className='text-base font-light text-gray-500 '>
                       <time dateTime='2022-02-08' title='February 8th, 2022'>
                         Feb. 8, 2022
                       </time>
@@ -71,7 +70,7 @@ const BlogDetailedPage = () => {
                   </div>
                 </div>
               </address>
-              <h1 className='mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white'>
+              <h1 className='mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl dark:text-white'>
                 Best practices for successful prototypes
               </h1>
             </header>
@@ -326,7 +325,7 @@ const BlogDetailedPage = () => {
             </p>
             <section className='not-format'>
               <div className='flex justify-between items-center mb-6'>
-                <h2 className='text-lg lg:text-2xl font-bold text-gray-900 dark:text-white'>
+                <h2 className='text-lg lg:text-2xl font-bold dark:text-white'>
                   Discussion (20)
                 </h2>
               </div>
@@ -335,24 +334,32 @@ const BlogDetailedPage = () => {
                   <label className='sr-only'>Your comment</label>
                   <textarea
                     id='comment'
-                    className='px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800'
+                    className='px-0 w-full text-sm border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800'
                     placeholder='Write a comment...'
                     required
                     ref={textareaRef}
                     onContextMenu={handleContextMenu}
                     onMouseDown={() => setFormattingToolsVisible(false)}
                   ></textarea>
-                   {formattingToolsVisible && (
-          <div id="formattingTools" className="formatting-tools">
-            <button onClick={() => handleFormatting("**" + selectedText + "**")}>
-              Bold
-            </button>
-            <button onClick={() => handleFormatting("*" + selectedText + "*")}>
-              Italic
-            </button>
-            {/* Add more formatting buttons as needed */}
-          </div>
-        )}
+                  {formattingToolsVisible && (
+                    <div id='formattingTools' className='formatting-tools'>
+                      <button
+                        onClick={() =>
+                          handleFormatting('**' + selectedText + '**')
+                        }
+                      >
+                        Bold
+                      </button>
+                      <button
+                        onClick={() =>
+                          handleFormatting('*' + selectedText + '*')
+                        }
+                      >
+                        Italic
+                      </button>
+                      {/* Add more formatting buttons as needed */}
+                    </div>
+                  )}
                 </div>
                 <button
                   type='submit'
@@ -364,7 +371,7 @@ const BlogDetailedPage = () => {
               <article className='p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900'>
                 <footer className='flex justify-between items-center mb-2'>
                   <div className='flex items-center'>
-                    <p className='inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white'>
+                    <p className='inline-flex items-center mr-3 text-sm dark:text-white'>
                       <img
                         className='mr-2 w-6 h-6 rounded-full'
                         src='https://flowbite.com/docs/images/people/profile-picture-2.jpg'
@@ -372,7 +379,7 @@ const BlogDetailedPage = () => {
                       />
                       Michael Gough
                     </p>
-                    <p className='text-sm text-gray-600 dark:text-gray-400'>
+                    <p className='text-sm text-gray-600 '>
                       <time title='February 8th, 2022'>Feb. 8, 2022</time>
                     </p>
                   </div>
@@ -438,7 +445,7 @@ const BlogDetailedPage = () => {
                 <div className='flex items-center mt-4 space-x-4'>
                   <button
                     type='button'
-                    className='flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400'
+                    className='flex items-center text-sm text-gray-500 hover:underline '
                   >
                     <svg
                       aria-hidden='true'

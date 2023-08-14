@@ -55,7 +55,7 @@ const PlayerBox = (props: Props) => {
   }, []);
 
   return (
-    <span className='p-2 font-medium text-gray-900 whitespace-nowrap inline-flex items-center gap-1 rounded-md border-[1px]'>
+    <span className='p-2 font-medium whitespace-nowrap inline-flex items-center gap-1 rounded-md border-[1px]'>
       <button onClick={handlePlayPause}>
         {isPlaying ? (
           <BsPauseFill className='text-2xl bg-red-700 text-white p-1 rounded-md border-[1px]' />

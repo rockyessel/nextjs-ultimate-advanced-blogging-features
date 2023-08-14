@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang='en'>
       <ApolloProviderWrapper>
         <NextAuthProvider>
-          <body className='w-full h-screen overflow-y-hidden bg-gray-50'>
+          <body className='w-full h-screen overflow-y-hidden'>
             <Navbar />
             <section className='w-full flex'>
               <Sidebar />

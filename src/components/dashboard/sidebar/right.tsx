@@ -12,7 +12,7 @@ interface Props {}
 
 const RightSidebar = () => {
   return (
-    <aside className='flex-shrink-0 hidden w-[25rem] bg-white overflow-y-auto md:block pb-5 sticky top-10 border-l-[1px] px-2.5'>
+    <aside className='flex-shrink-0 hidden w-[25rem] bg-white overflow-y-visible md:flex pb-5 sticky top-0 border-l-[1px] px-2.5 flex-col gap-2'>
       <div className='w-full'>
         <p>Post Metadata</p>
         <div>
@@ -109,6 +109,22 @@ const RightSidebar = () => {
       </div>
 
       <div className='w-full'>
+        <p>Caption</p>
+
+        <div>
+          <form className='w-full'>
+            <div className='inline-flex items-center gap-2'>
+              <input
+                type='text'
+                className='appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500'
+                placeholder='Enter'
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div className='w-full'>
         <p>Post URL</p>
         <div>
           <div className='inline-flex flex-col items-center gap-1'>
@@ -135,7 +151,7 @@ const RightSidebar = () => {
 
       <div>
         <p>Status</p>
-        <input type='checkbox' className='toggle' />
+        <input title='Status' type='checkbox' className='toggle' />
       </div>
 
       <div className='w-full'>
@@ -184,6 +200,27 @@ const RightSidebar = () => {
             </div>
           </form>
         </div>
+      </div>
+
+      <div className='flex items-center gap-2'>
+        <button
+          type='button'
+          className='inline-block rounded bg-blue-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-blue-700 transition duration-150 ease-in-out hover:bg-blue-100 focus:bg-blue-100 focus:outline-none focus:ring-0 active:bg-blue-200'
+        >
+          Publish
+        </button>
+        <button
+          type='button'
+          className='inline-block rounded bg-blue-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-blue-700 transition duration-150 ease-in-out hover:bg-blue-100 focus:bg-blue-100 focus:outline-none focus:ring-0 active:bg-blue-200'
+        >
+          Preview
+        </button>
+        <button
+          type='button'
+          className='inline-block rounded bg-blue-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-blue-700 transition duration-150 ease-in-out hover:bg-blue-100 focus:bg-blue-100 focus:outline-none focus:ring-0 active:bg-blue-200'
+        >
+          Saved
+        </button>
       </div>
     </aside>
   );

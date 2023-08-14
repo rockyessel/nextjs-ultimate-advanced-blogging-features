@@ -7,13 +7,13 @@ type Post @model @search {
   title: String!
   caption: String
   slug: String! @unique
-  content: String!
+  content: String
   publishedAt: String!
   comments: [Comment]
   likes: Int @default(value: 0)
   views: Int @default(value: 0)
   tags: [String] @length(max: 5)
-  author: User! @relation(name: "UserPosts")
+  author: User @relation(name: "UserPosts")
   audio: String
   chats: [Chat]
   status: String @default(value: "public")
@@ -45,5 +45,4 @@ schema
     rules: [{ allow: private }]
   ) {
   query: Query
-  mutation: Mutation
 }

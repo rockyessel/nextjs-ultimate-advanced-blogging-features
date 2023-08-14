@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { IoMdAdd } from 'react-icons/io';
 import { FaBell } from 'react-icons/fa';
+import { BiSolidCommentDetail } from 'react-icons/bi';
+import {BsFillCollectionFill, BsFillSuitHeartFill} from 'react-icons/bs';
 import Avatar from 'react-avatar';
 interface Props {}
 
@@ -110,9 +112,9 @@ const Navbar = () => {
             {showNotifications && (
               <div
                 ref={notificationsRef}
-                className='absolute right-0 mt-3 mr-2 w-80 bg-white border border-gray-300 shadow-lg'
+                className='absolute top-12 right-0 mt-3 mr-2 w-[20rem] z-50 text-base list-none bg-white rounded divide-y divide-gray-100 shadow'
               >
-                <div className='overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg'>
+                
                   <div className='block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 '>
                     Notifications
                   </div>
@@ -128,15 +130,7 @@ const Navbar = () => {
                           alt='Bonnie Green avatar'
                         />
                         <div className='flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 rounded-full border border-white bg-primary-700'>
-                          <svg
-                            className='w-3 h-3 text-white'
-                            fill='currentColor'
-                            viewBox='0 0 20 20'
-                            xmlns='http://www.w3.org/2000/svg'
-                          >
-                            <path d='M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z'></path>
-                            <path d='M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z'></path>
-                          </svg>
+                          <BiSolidCommentDetail />
                         </div>
                       </div>
                       <div className='pl-3 w-full'>
@@ -154,7 +148,7 @@ const Navbar = () => {
                     </a>
                     <a
                       href='#'
-                      className='flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600'
+                      className='flex py-3 px-4 border-b dark:border-gray-600'
                     >
                       <div className='flex-shrink-0'>
                         <img
@@ -163,14 +157,7 @@ const Navbar = () => {
                           alt='Jese Leos avatar'
                         />
                         <div className='flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-gray-900 rounded-full border border-white dark:border-gray-700'>
-                          <svg
-                            className='w-3 h-3 text-white'
-                            fill='currentColor'
-                            viewBox='0 0 20 20'
-                            xmlns='http://www.w3.org/2000/svg'
-                          >
-                            <path d='M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z'></path>
-                          </svg>
+                          <BiSolidCommentDetail />
                         </div>
                       </div>
                       <div className='pl-3 w-full'>
@@ -191,7 +178,7 @@ const Navbar = () => {
                     </a>
                     <a
                       href='#'
-                      className='flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600'
+                      className='flex py-3 px-4 border-b dark:border-gray-600'
                     >
                       <div className='flex-shrink-0'>
                         <img
@@ -200,18 +187,7 @@ const Navbar = () => {
                           alt='Joseph McFall avatar'
                         />
                         <div className='flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-red-600 rounded-full border border-white dark:border-gray-700'>
-                          <svg
-                            className='w-3 h-3 text-white'
-                            fill='currentColor'
-                            viewBox='0 0 20 20'
-                            xmlns='http://www.w3.org/2000/svg'
-                          >
-                            <path
-                              fillRule='evenodd'
-                              d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z'
-                              clipRule='evenodd'
-                            ></path>
-                          </svg>
+                          <BiSolidCommentDetail />
                         </div>
                       </div>
                       <div className='pl-3 w-full'>
@@ -232,7 +208,7 @@ const Navbar = () => {
                     </a>
                     <a
                       href='#'
-                      className='flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600'
+                      className='flex py-3 px-4 border-b dark:border-gray-600'
                     >
                       <div className='flex-shrink-0'>
                         <img
@@ -241,18 +217,7 @@ const Navbar = () => {
                           alt='Roberta Casas image'
                         />
                         <div className='flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-green-400 rounded-full border border-white dark:border-gray-700'>
-                          <svg
-                            className='w-3 h-3 text-white'
-                            fill='currentColor'
-                            viewBox='0 0 20 20'
-                            xmlns='http://www.w3.org/2000/svg'
-                          >
-                            <path
-                              fillRule='evenodd'
-                              d='M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z'
-                              clipRule='evenodd'
-                            ></path>
-                          </svg>
+                          <BiSolidCommentDetail />
                         </div>
                       </div>
                       <div className='pl-3 w-full'>
@@ -271,10 +236,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     </a>
-                    <a
-                      href='#'
-                      className='flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600'
-                    >
+                    <a href='#' className='flex py-3 px-4'>
                       <div className='flex-shrink-0'>
                         <img
                           className='w-11 h-11 rounded-full'
@@ -282,14 +244,7 @@ const Navbar = () => {
                           alt='Robert image'
                         />
                         <div className='flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-purple-500 rounded-full border border-white dark:border-gray-700'>
-                          <svg
-                            className='w-3 h-3 text-white'
-                            fill='currentColor'
-                            viewBox='0 0 20 20'
-                            xmlns='http://www.w3.org/2000/svg'
-                          >
-                            <path d='M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z'></path>
-                          </svg>
+                          <BiSolidCommentDetail />
                         </div>
                       </div>
                       <div className='pl-3 w-full'>
@@ -328,7 +283,6 @@ const Navbar = () => {
                     </div>
                   </a>
                 </div>
-              </div>
             )}
 
             <button
@@ -341,88 +295,48 @@ const Navbar = () => {
                 name='Rocky Essel'
                 size='40'
                 className='w-full h-full object-cover object-center'
-                // src={image}
                 round={true}
               />
             </button>
-            {/* <!-- Dropdown menu --> */}
-
             {showUserDropdown && (
               <div
                 ref={userDropdownRef}
-                className='absolute right-0 mt-3 mr-2 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow'
+                className='absolute top-12 right-0 mt-3 mr-2 w-56 z-50 text-base list-none bg-white rounded divide-y divide-gray-100 shadow'
               >
-                <div
-                  className='z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow'
-                  id='dropdown'
-                >
-                  <div className='py-3 px-4'>
-                    <span className='block text-sm font-semibold dark:text-white'>
-                      Neil sims
-                    </span>
-                    <span className='block text-sm font-light text-gray-500 truncate '>
-                      name@flowbite.com
-                    </span>
-                  </div>
-                  <ul className='py-1 font-light text-gray-500 '>
-                    <li>
-                      <a
-                        href='#'
-                        className='block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600 '
-                      >
-                        My profile
-                      </a>
-                    </li>
-                  </ul>
-                  <ul className='py-1 font-light text-gray-500 '>
-                    <li>
-                      <a
-                        href='#'
-                        className='flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600'
-                      >
-                        <svg
-                          className='mr-2 w-5 h-5 text-gray-400'
-                          fill='currentColor'
-                          viewBox='0 0 20 20'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <path
-                            fillRule='evenodd'
-                            d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z'
-                            clipRule='evenodd'
-                          ></path>
-                        </svg>{' '}
-                        Stories
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href='#'
-                        className='flex items-center py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600'
-                      >
-                        <svg
-                          className='mr-2 w-5 h-5 text-gray-400'
-                          fill='currentColor'
-                          viewBox='0 0 20 20'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <path d='M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z'></path>
-                        </svg>{' '}
-                        Posts
-                      </a>
-                    </li>
-                  </ul>
-                  <ul className='py-1 font-light text-gray-500 '>
-                    <li>
-                      <a
-                        href='#'
-                        className='block py-2 px-4 text-sm hover:bg-gray-100 dark:hover:bg-gray-600'
-                      >
-                        Sign out
-                      </a>
-                    </li>
-                  </ul>
+                <div className='py-3 px-4 text-gray-500'>
+                  <span className='block text-sm font-semibold'>Neil sims</span>
+                  <span className='block text-sm font-light truncate '>
+                    name@flowbite.com
+                  </span>
                 </div>
+                <ul className='py-1 font-light text-gray-500 '>
+                  <li>
+                    <a href='#' className='block py-2 px-4 text-sm '>
+                      My profile
+                    </a>
+                  </li>
+                </ul>
+                <ul className='py-1 font-light text-gray-500 '>
+                  <li>
+                    <a href='#' className='flex items-center py-2 px-4 text-sm'>
+                      <BsFillSuitHeartFill />
+                      Stories
+                    </a>
+                  </li>
+                  <li>
+                    <a href='#' className='flex items-center py-2 px-4 text-sm'>
+                      <BsFillCollectionFill />
+                      Posts
+                    </a>
+                  </li>
+                </ul>
+                <ul className='py-1 font-light text-gray-500 '>
+                  <li>
+                    <a href='#' className='block py-2 px-4 text-sm'>
+                      Sign out
+                    </a>
+                  </li>
+                </ul>
               </div>
             )}
           </div>

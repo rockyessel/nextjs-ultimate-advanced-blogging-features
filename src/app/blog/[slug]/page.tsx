@@ -1,43 +1,10 @@
-'use client';
 
-import React, { useState } from 'react';
 
 interface Props {}
 
 const BlogDetailedPage = () => {
-  const [formattingToolsVisible, setFormattingToolsVisible] = useState(false);
-  const [selectedText, setSelectedText] = useState('');
-  const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
-  const handleContextMenu = (event: React.MouseEvent<HTMLTextAreaElement>) => {
-    event.preventDefault();
 
-    const x = event.clientX;
-    const y = event.clientY;
-    setSelectedText(window!.getSelection()!.toString()!);
-    setFormattingToolsVisible(true);
-
-    const formattingTools = document.getElementById('formattingTools');
-    if (formattingTools) {
-      formattingTools.style.left = `${x}px`;
-      formattingTools.style.top = `${y}px`;
-    }
-  };
-
-  const handleFormatting = (format: string) => {
-    if (textareaRef.current) {
-      const selectionStart = textareaRef.current.selectionStart;
-      const selectionEnd = textareaRef.current.selectionEnd;
-
-      const newText =
-        textareaRef.current.value.slice(0, selectionStart) +
-        format +
-        textareaRef.current.value.slice(selectionEnd);
-
-      textareaRef.current.value = newText;
-      setFormattingToolsVisible(false);
-    }
-  };
   return (
     <section>
       <main className='pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900'>
@@ -337,29 +304,8 @@ const BlogDetailedPage = () => {
                     className='px-0 w-full text-sm border-0 focus:ring-0 dark:text-white dark:placeholder-gray-400 dark:bg-gray-800'
                     placeholder='Write a comment...'
                     required
-                    ref={textareaRef}
-                    onContextMenu={handleContextMenu}
-                    onMouseDown={() => setFormattingToolsVisible(false)}
                   ></textarea>
-                  {formattingToolsVisible && (
-                    <div id='formattingTools' className='formatting-tools'>
-                      <button
-                        onClick={() =>
-                          handleFormatting('**' + selectedText + '**')
-                        }
-                      >
-                        Bold
-                      </button>
-                      <button
-                        onClick={() =>
-                          handleFormatting('*' + selectedText + '*')
-                        }
-                      >
-                        Italic
-                      </button>
-                      {/* Add more formatting buttons as needed */}
-                    </div>
-                  )}
+                 
                 </div>
                 <button
                   type='submit'

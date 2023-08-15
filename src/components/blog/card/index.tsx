@@ -4,7 +4,7 @@ interface Props {}
 
 const Card = () => {
   return (
-    <li>
+    <li className='w-[28rem]'>
       <div className='w-full max-w-md  mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'>
         <div className='max-w-md mx-auto'>
           <div

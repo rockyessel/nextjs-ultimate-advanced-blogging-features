@@ -38,7 +38,9 @@ export const findUserByEmail = async (email: string) => {
   return user;
 };
 
-export const createUserUsingProvider = async (variables: Variables):Promise<string> => {
+export const createUserUsingProvider = async (
+  variables: Variables
+): Promise<string> => {
   const query = gql`
     mutation UserCreate(
       $email: Email!
@@ -61,9 +63,20 @@ export const createUserUsingProvider = async (variables: Variables):Promise<stri
     }
   `;
 
-  const data = await userAuth(query, variables) as any;
+  const data = (await userAuth(query, variables)) as any;
 
-  return data.userCreate.user.id as string
+  return data.userCreate.user.id as string;
 };
 
 export const findUserById = async (id: string) => {};
+
+export const getCurrentUser = async () => {
+  const response = await fetch('/api/auth/session');
+  const data = await response.json();
+  if (data.user) {
+    const user = data?.user;
+    return user;
+  } else {
+    return null;
+  }
+};

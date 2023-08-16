@@ -46,7 +46,7 @@ const BlogSection = () => {
           </div>
           <div className='w-full md:w-1/2'>
             <div className='block'>
-              <img
+              <Image
                 src='https://images.unsplash.com/photo-1626314928277-1d373ddb6428?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mzd8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
                 className='object-cover rounded-lg max-h-64 sm:max-h-96 btn- w-full h-full'
               />
@@ -55,7 +55,7 @@ const BlogSection = () => {
         </div>
         <div className='grid grid-cols-12 sm:px-5 gap-x-8 gap-y-16'>
           <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-            <img
+            <Image
               src='https://images.unsplash.com/photo-1626318305863-bb23d0297c0b?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
               className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
             />
@@ -86,7 +86,7 @@ const BlogSection = () => {
             </div>
           </div>
           <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-            <img
+            <Image
               src='https://images.unsplash.com/photo-1626285861696-9f0bf5a49c6d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTl8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
               className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
             />
@@ -117,7 +117,7 @@ const BlogSection = () => {
             </div>
           </div>
           <div className='flex flex-col items-start col-span-12 space-y-3 sm:col-span-6 xl:col-span-4'>
-            <img
+            <Image
               src='https://images.unsplash.com/photo-1626197031507-c17099753214?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MzR8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60'
               className='object-cover w-full mb-2 overflow-hidden rounded-lg shadow-sm max-h-56 btn-'
             />

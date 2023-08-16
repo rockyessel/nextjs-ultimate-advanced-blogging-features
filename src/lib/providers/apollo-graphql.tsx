@@ -1,5 +1,5 @@
 'use client';
-import React from 'react'
+import React from 'react';
 import { useMemo } from 'react';
 import {
   ApolloClient,
@@ -22,17 +22,15 @@ const sseLink = new SSELink({
 });
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export const ApolloProviderWrapper = (props:Props) => {
+export const ApolloProviderWrapper = (props: Props) => {
   const client = useMemo(() => {
     const authMiddleware = setContext(async (_, { headers }) => {
       const { token } = await fetch('/api/auth/token').then((res) =>
         res.json()
       );
-
-      console.log('token', token);
 
       return {
         headers: {

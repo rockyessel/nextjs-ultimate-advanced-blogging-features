@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { gql } from '@apollo/client';
 import { NextResponse } from 'next/server';
-import { userAuth } from '@/lib/api';
+import { authenticatedQuery } from '@/lib/api';
 
 export const POST = async (request: Request) => {
   const body = await request.json();
@@ -13,6 +13,9 @@ export const POST = async (request: Request) => {
           user {
             id
             email
+            username
+            name
+            picture
           }
         }
       }
@@ -22,7 +25,7 @@ export const POST = async (request: Request) => {
       email,
       password: hashedPassword,
     };
-    const data = await userAuth(query, variables);
+    const data = await authenticatedQuery(query, variables);
     return NextResponse.json({ user: data });
   } catch (error) {
     return NextResponse.json({ error });

@@ -1,19 +1,18 @@
-
-
-interface Props {}
+import Chat from '@/components/blog/chat';
+import Image from 'next/image';
 
 const BlogDetailedPage = () => {
-
-
   return (
-    <section>
-      <main className='pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900'>
+    <section className='flex'>
+      <main className='pt-8 flex-1 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900'>
         <div className='flex justify-between px-4 mx-auto max-w-screen-xl '>
           <article className='mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert'>
             <header className='mb-4 lg:mb-6 not-format'>
               <address className='flex items-center mb-6 not-italic'>
                 <div className='inline-flex items-center mr-3 text-sm dark:text-white'>
-                  <img
+                  <Image
+                    width={100}
+                    height={100}
                     className='mr-4 w-16 h-16 rounded-full'
                     src='https://flowbite.com/docs/images/people/profile-picture-2.jpg'
                     alt='Jese Leos'
@@ -40,6 +39,12 @@ const BlogDetailedPage = () => {
               <h1 className='mb-4 text-3xl font-extrabold leading-tight lg:mb-6 lg:text-4xl dark:text-white'>
                 Best practices for successful prototypes
               </h1>
+              <Image
+                width={100}
+                height={100}
+                src='https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png'
+                alt=''
+              />
             </header>
             <p className='lead'>
               Flowbite is an open-source library of UI components built with the
@@ -61,7 +66,9 @@ const BlogDetailedPage = () => {
               conveniently built with the utility classes from Tailwind CSS.
             </p>
             <figure>
-              <img
+              <Image
+                width={100}
+                height={100}
                 src='https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png'
                 alt=''
               />
@@ -172,7 +179,9 @@ const BlogDetailedPage = () => {
               <li>Diagonal stress in the strokes</li>
               <li>Slanted serifs on lower-case ascenders</li>
             </ul>
-            <img
+            <Image
+              width={100}
+              height={100}
               src='https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-2.png'
               alt=''
             />
@@ -305,7 +314,6 @@ const BlogDetailedPage = () => {
                     placeholder='Write a comment...'
                     required
                   ></textarea>
-                 
                 </div>
                 <button
                   type='submit'
@@ -318,7 +326,9 @@ const BlogDetailedPage = () => {
                 <footer className='flex justify-between items-center mb-2'>
                   <div className='flex items-center'>
                     <p className='inline-flex items-center mr-3 text-sm dark:text-white'>
-                      <img
+                      <Image
+                        width={100}
+                        height={100}
                         className='mr-2 w-6 h-6 rounded-full'
                         src='https://flowbite.com/docs/images/people/profile-picture-2.jpg'
                         alt='Michael Gough'
@@ -416,6 +426,10 @@ const BlogDetailedPage = () => {
           </article>
         </div>
       </main>
+
+      <div className=''>
+        <Chat />
+      </div>
     </section>
   );
 };

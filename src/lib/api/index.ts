@@ -1,7 +1,7 @@
 import { DocumentNode, gql } from '@apollo/client';
 import { GraphQLClient, Variables } from 'graphql-request';
 
-export const userAuth = async (
+export const authenticatedQuery = async (
   query: DocumentNode | string,
   variables: Variables
 ) => {
@@ -33,7 +33,7 @@ export const findUserByEmail = async (email: string) => {
     }
   `;
 
-  const { user } = (await userAuth(query, { email })) as any;
+  const { user } = (await authenticatedQuery(query, { email })) as any;
 
   return user;
 };
@@ -63,7 +63,7 @@ export const createUserUsingProvider = async (
     }
   `;
 
-  const data = (await userAuth(query, variables)) as any;
+  const data = (await authenticatedQuery(query, variables)) as any;
 
   return data.userCreate.user.id as string;
 };

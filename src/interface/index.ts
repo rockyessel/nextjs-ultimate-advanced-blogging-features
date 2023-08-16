@@ -49,6 +49,14 @@ export interface PostCollectionResponse {
   };
 }
 
+export interface UserProps {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  picture: string;
+}
+
 
 export interface User {
   email: string;

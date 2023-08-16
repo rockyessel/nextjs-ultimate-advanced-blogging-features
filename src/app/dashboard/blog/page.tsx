@@ -42,11 +42,7 @@ const DashboardBlogMain = () => {
 
   console.log('data', data);
 
-  return (
-    <div>
-      <Table blogLists={data?.postCollection} />
-    </div>
-  );
+  return <div>{data && <Table blogLists={data?.postCollection} />}</div>;
 };
 
 export default DashboardBlogMain;

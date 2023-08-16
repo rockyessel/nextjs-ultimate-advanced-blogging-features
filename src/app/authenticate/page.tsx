@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { signIn, useSession } from 'next-auth/react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 interface Props {}
 
@@ -16,6 +17,7 @@ const initialFormValue = {
 const Authenticate = () => {
   const [form, setForm] =
     React.useState<typeof initialFormValue>(initialFormValue);
+  const router = useRouter();
 
   const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { target } = event;
@@ -31,18 +33,24 @@ const Authenticate = () => {
     console.log('form: ', form);
     if (form) {
       await axios.post('/api/register', { ...form });
-      signIn('credentials', {
+      await signIn('credentials', {
         ...form,
         redirect: false,
       });
     }
   };
 
+  const { status } = useSession();
+  React.useEffect(() => {
+    if (status === 'authenticated') {
+      router.push('/dashboard');
+    }
+  }, [router, status]);
+
   return (
     <main className='fixed top-0 w-full h-screen overflow-y-hidden flex items-center justify-center bg-gray-800'>
       <section className='flex flex-col'>
         <div className='flex items-center justify-center h-screen'>
-          {/* <!-- Login Container --> */}
           <div className='min-w-fit flex-col border bg-white px-6 py-14 shadow-md rounded-[4px] '>
             <div className='mb-8 flex flex-col items-center justify-center'>
               <Image src='/bloggkie.svg' width={50} height={50} alt='Logo' />

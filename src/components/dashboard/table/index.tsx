@@ -4,6 +4,7 @@ import { Edge, PageInfo } from '@/interface';
 import PlayerBox from '../audio/player-box';
 import { BsEye } from 'react-icons/bs';
 import { MdArrowForwardIos, MdArrowBackIos } from 'react-icons/md';
+import Image from 'next/image';
 
 interface Props {
   blogLists: {
@@ -19,7 +20,6 @@ const Table = (props: Props) => {
     <section className=''>
       <div className='mx-auto max-w-screen-2xl'>
         <div className='overflow-hidden sm:rounded-lg'>
-     
           <div className='overflow-x-auto shadow-md'>
             <table className='bg-white rounded-lg w-full text-sm text-left '>
               <thead className='text-xs  uppercase'>
@@ -28,7 +28,6 @@ const Table = (props: Props) => {
                     <div className='flex items-center'>
                       <input
                         title='Checkbox'
-                       
                         type='checkbox'
                         className='w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500'
                       />
@@ -77,7 +76,9 @@ const Table = (props: Props) => {
                       </form>
                     </td>
                     <th className='flex items-center  font-medium whitespace-nowrap'>
-                      <img
+                      <Image
+                        width={100}
+                        height={100}
                         src='https://flowbite.s3.amazonaws.com/blocks/application-ui/products/imac-front-image.png'
                         alt='iMac Front Image'
                         className='w-auto h-8 mr-3'

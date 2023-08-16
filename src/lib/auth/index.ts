@@ -5,8 +5,14 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import jsonwebtoken from 'jsonwebtoken';
 import { JWT } from 'next-auth/jwt';
 import bcrypt from 'bcrypt';
-import { createUserUsingProvider, findUserByEmail, userAuth } from '../api';
+import {
+  createUserUsingProvider,
+  findUserByEmail,
+  authenticatedQuery,
+} from '../api';
 import { gql } from 'graphql-request';
+import { getServerSession } from 'next-auth';
+import { UserProps } from '@/interface';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -29,10 +35,10 @@ export const authOptions: NextAuthOptions = {
           if (!credentials?.email || !credentials?.password) {
             throw new Error('Invalid credentials');
           }
-          const { user } = await findUserByEmail(credentials?.email);
+          const user = await findUserByEmail(credentials?.email);
           const isCorrectPassword = await bcrypt.compare(
-            credentials.password,
-            user.password
+            credentials?.password,
+            user?.password
           );
           if (!isCorrectPassword) {
             throw new Error('Invalid credentials');
@@ -84,7 +90,7 @@ export const authOptions: NextAuthOptions = {
         const user = await findUserByEmail(token.email!);
         if (user) {
           userId = user.id;
-          token.sub = userId
+          token.sub = userId;
         } else {
           let customUser = {
             username: '',
@@ -129,4 +135,13 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
   },
+};
+
+export const getCurrentUser = async () => {
+  const session = await getServerSession(authOptions);
+  if (session) {
+    const user = { ...session.user } as UserProps;
+    return user;
+  }
+  return null;
 };

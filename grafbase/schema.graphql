@@ -3,6 +3,13 @@ type Chat @model {
   author: User!
 }
 
+type Analytics @model {
+  post: Post! @relation(name: "PostAnalytics")
+  views: Int
+  clicks: Int
+  duration: Int
+}
+
 type Post @model @search {
   title: String!
   caption: String

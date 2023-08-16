@@ -56,7 +56,7 @@ const Table = (props: Props) => {
                     Audio
                   </th>
                   <th scope='col' className='px-4 py-3'>
-                    Chats
+                    Ad Revenue
                   </th>
                   <th scope='col' className='px-4 py-3'>
                     Last Update
@@ -72,7 +72,7 @@ const Table = (props: Props) => {
                     <td className='w-4 px-4 py-3'>
                       <form className='flex items-center'>
                         <label className='sr-only'>checkbox</label>
-                        <input title='checkbox' />
+                        <input type='checkbox' title='checkbox' />
                       </form>
                     </td>
                     <th className='flex items-center  font-medium whitespace-nowrap'>

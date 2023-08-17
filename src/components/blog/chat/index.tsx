@@ -5,6 +5,8 @@ import { FiMoreHorizontal } from 'react-icons/fi';
 import { MdKeyboardVoice, MdHideSource } from 'react-icons/md';
 import { RiSendPlane2Line, RiSendPlane2Fill } from 'react-icons/ri';
 import Message from './message';
+import { gql, useQuery } from '@apollo/client';
+import { ChatCollectionQuery } from '@/interface';
 
 const Chat = () => {
   const chatContainerRef = React.useRef<HTMLDivElement | null>(null);
@@ -43,6 +45,36 @@ const Chat = () => {
     },
   ];
 
+  const query = gql`
+    query ChatCollection($last: Int) @live {
+      chatCollection(last: $last) {
+        edges {
+          node {
+            id
+            content
+            post {
+              id
+            }
+            author {
+              name
+              picture
+              username
+              id
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const { loading, error, data } = useQuery<ChatCollectionQuery>(query, {
+    variables: { last: 100 },
+  });
+
+  console.log('Chat Query Loading?: ', loading);
+  console.log('Chat Query?: ', data);
+  console.log('Chat Query Error?: ', error);
+
   console.log('chatInputElement', chatInputElement);
 
   const handleSendMessage = () => {
@@ -62,9 +94,7 @@ const Chat = () => {
         className='bg-black h-[30rem] w-[25rem] overflow-y-auto px-2'
         ref={chatContainerRef}
       >
-        {chatData.map((chat, index) => (
-          <Message key={index} {...chat} />
-        ))}
+        {data && data.chatCollection.edges.map((chat, index) => <Message key={index} chat={chat.node} />)}
       </div>
 
       <div className=''>

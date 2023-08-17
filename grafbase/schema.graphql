@@ -1,6 +1,7 @@
 type Chat @model {
   content: String!
   author: User!
+  post: Post!
 }
 
 type Analytics @model {

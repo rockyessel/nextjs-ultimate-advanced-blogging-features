@@ -2,10 +2,10 @@ import React from 'react';
 import { useSession } from 'next-auth/react';
 import { UserProps } from '@/interface';
 import Image from 'next/image';
+import { Chat } from '@/interface';
+
 interface Props {
-  userId: string;
-  picture: string;
-  message: string;
+  chat: Chat;
 }
 
 const Message = (props: Props) => {
@@ -15,12 +15,12 @@ const Message = (props: Props) => {
     <div className='my-2'>
       <div
         className={`flex items-end ${
-          props?.userId === user?.id ? 'justify-end' : ''
+          props?.chat?.author?.id === user?.id ? 'justify-end' : ''
         }`}
       >
         <div
           className={`flex flex-col space-y-2 text-xs max-w-xs mx-2 ${
-            props?.userId === user?.id
+            props?.chat?.author?.id === user?.id
               ? 'order-1 items-end'
               : 'order-2 items-start'
           }`}
@@ -28,22 +28,22 @@ const Message = (props: Props) => {
           <div>
             <span
               className={`px-4 py-2 rounded-lg inline-block ${
-                props?.userId === user?.id
+                props?.chat?.author?.id === user?.id
                   ? 'rounded-br-none'
                   : 'rounded-bl-none'
               }  bg-white/50 text-white`}
             >
-              {props?.message}
+              {props?.chat?.content}
             </span>
           </div>
         </div>
         <Image
-          src={props?.picture}
-          alt={props?.userId}
+          src={props?.chat?.author?.picture}
+          alt={props?.chat?.author?.id}
           height={100}
           width={100}
           className={`w-6 h-6 rounded-full ${
-            props.userId === user?.id ? 'order-2' : 'order-1'
+            props?.chat?.author?.id === user?.id ? 'order-2' : 'order-1'
           } `}
         />
       </div>

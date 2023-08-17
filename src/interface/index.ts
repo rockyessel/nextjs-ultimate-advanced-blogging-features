@@ -5,10 +5,26 @@ export interface LayoutRootProps {
 }
 
 export interface Chat {
+  id: string;
   content: string;
-  author: User;
+  post: {
+    id: string;
+  };
+  author: {
+    name: string;
+    picture: string;
+    username: string;
+    id: string;
+  };
 }
 
+export interface ChatCollectionQuery {
+  chatCollection: {
+    edges: Array<{
+      node: Chat;
+    }>;
+  };
+}
 export interface Post {
   title: string;
   caption: string | null;
@@ -41,7 +57,6 @@ export interface PageInfo {
   hasNextPage: boolean;
 }
 
-
 export interface PostCollectionResponse {
   postCollection: {
     edges: Edge[];
@@ -56,7 +71,6 @@ export interface UserProps {
   email: string;
   picture: string;
 }
-
 
 export interface User {
   email: string;

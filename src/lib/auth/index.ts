@@ -5,14 +5,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import jsonwebtoken from 'jsonwebtoken';
 import { JWT } from 'next-auth/jwt';
 import bcrypt from 'bcrypt';
-import {
-  createUserUsingProvider,
-  findUserByEmail,
-  authenticatedQuery,
-} from '../api';
-import { gql } from 'graphql-request';
-import { getServerSession } from 'next-auth';
-import { UserProps } from '@/interface';
+import { createUserUsingProvider, findUserByEmail } from '../api';
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -113,35 +106,11 @@ export const authOptions: NextAuthOptions = {
 
     // // Session callback: Executed whenever a new session is created or updated
     async session({ session, token }) {
-      // Save the desired user information to the session
-      const user = await findUserByEmail(token.email!);
-      const userId = user?.id;
-      const customUser = {
-        username: token.username as string | null | undefined,
-        name: token.name,
-        email: token.email,
-        picture: token.picture,
-        id: userId as string | null | undefined,
-      };
-      if (!user) {
-        // Save the user information to your database using a GraphQL mutation
-        const { id, ...variables } = customUser; // we destructed the id to remove it before sending it our endpoint
-        const createdUser = await createUserUsingProvider(variables);
-        customUser.id = createdUser;
-        session.user = customUser;
-        return session;
+      if (token.username) {
+        const user = { ...session?.user!, username: token.username as string | null | undefined };
+        session.user = user;
       }
-      session.user = customUser;
       return session;
     },
   },
-};
-
-export const getCurrentUser = async () => {
-  const session = await getServerSession(authOptions);
-  if (session) {
-    const user = { ...session.user } as UserProps;
-    return user;
-  }
-  return null;
 };

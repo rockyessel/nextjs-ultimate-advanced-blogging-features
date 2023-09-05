@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+html,
+body,
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #ffffff;
+  --card: #fff;
+  --text-color: #000; /* Added text color variable */
+}
+
+/* Cards */
+.category-card {
+  cursor: pointer;
+  position: relative;
+  /* height: 100px; */
+ 
+  width: 300px !important;
+  padding-bottom: 20%;
+  --offset-multiplier: 4px;
+  --translate: 0;
+  -webkit-transition: transform 0.6s ease;
+  -moz-transition: transform 0.6s ease;
+  -ms-transition: transform 0.6s ease;
+  -o-transition: transform 0.6s ease;
+  transition: transform 0.6s ease;
+  -webkit-transform: translate(var(--translate), var(--translate));
+  -moz-transform: translate(var(--translate), var(--translate));
+  -ms-transform: translate(var(--translate), var(--translate));
+  -o-transform: translate(var(--translate), var(--translate));
+  transform: translate(var(--translate), var(--translate));
+}
+
+.category-card:hover {
+  --offset-multiplier: 6px;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+/* Child Elements */
+.category-child {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  background: var(--card);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.219),
+    0px -4px 1px rgba(255, 255, 255, 0.8);
+  transition: inherit;
+  --translate: calc(var(--offset) * var(--offset-multiplier));
+  z-index: 5;
+  -webkit-transform: translate(var(--translate), var(--translate));
+  -moz-transform: translate(var(--translate), var(--translate));
+  -ms-transform: translate(var(--translate), var(--translate));
+  -o-transform: translate(var(--translate), var(--translate));
+  transform: translate(var(--translate), var(--translate));
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  border-radius: 6px;
+}
+
+/* Loop for Child Elements */
+.category-child:nth-child(1) {
+  --offset: 0;
+  z-index: 5;
+}
+.category-child:nth-child(2) {
+  --offset: -1;
+  z-index: 4;
+}
+.category-child:nth-child(3) {
+  --offset: -2;
+  z-index: 3;
+}
+.category-child:nth-child(4) {
+  --offset: -3;
+  z-index: 2;
+}
+.category-child:nth-child(5) {
+  --offset: -4;
+  z-index: 1;
+}
